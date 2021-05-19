@@ -1,10 +1,10 @@
 # md_impact_tests
 
-The molecular dynamics (MD) model used in our recent paper is shown below. This repository contains the LAMMPS files required to run MD simulations of shock propagation and spallation of polyurethane. The LAMMPS data file (240 MB) can be downloaded from here. The input and parameters files are available above (“spall_in.in” and “polyurethana_60nm.params”)
+The molecular dynamics (MD) model used in our recent paper, published in [Computational Materials Science](https://www.sciencedirect.com/science/article/abs/pii/S0927025621002299), is shown below. This repository contains the LAMMPS files required to run MD simulations of impact tests of the aluminum/polyurea structure. The LAMMPS data file (240 MB) can be downloaded from here. The input and parameters files are available above (“spall_in.in” and “polyurethana_60nm.params”)
 
 
 
-The provided MATLAB code, x_t_density.m, can be used to generate position-time plots of density (or any other thermodynamics variables). A position-time plot of density when the initial particle velocity (Up) is 2 km/s is shown below. In this case, the code will read the LAMMPS output file containing densities (density.out) and generate the plot.
+The provided MATLAB code, projectile_z_v.m, can be used to track the position and velocity of the projectile; a plot when the impact velocity is xxx km/s is shown below.
 
 
 
