@@ -8,6 +8,8 @@ I would like to share a molecular dynamics (MD) model used in our recent paper p
 The provided MATLAB code, projectile_z_v.m, can be used to track the position and velocity of the projectile; a plot when the impact velocity is xxx km/s is shown below.
 
 
+If you are using [Compute Canada](https://www.computecanada.ca/home/), the "sub.sh" script can be used to submit the job. The simulation will need ~XXX core-hours.
 
 If you would like to learn more about the model, please read [our paper](https://www.sciencedirect.com/science/article/abs/pii/S0927025621002299). 
+
 Good luck with your MD simulations.
