@@ -9,4 +9,5 @@ The provided MATLAB code, projectile_z_v.m, can be used to track the position an
 
 
 
+If you would like to learn more about the model, please read [our paper](https://www.sciencedirect.com/science/article/abs/pii/S0927025621002299). 
 Good luck with your MD simulations.
