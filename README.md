@@ -5,7 +5,7 @@ I would like to share a molecular dynamics (MD) model used in our recent paper p
 
  <img src="MD_model.JPG" width="600">
 
-The provided MATLAB code, projectile_z_v.m, can be used to track the position and velocity of the projectile; a plot when the impact velocity is 450 m/s is shown below.
+The provided MATLAB code, projectile_z_v.m, can be used to track the position and velocity of the projectile; a typical plot is shown below.
 
  <img src="projectile_v_x.png" width="350">
 
