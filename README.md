@@ -9,7 +9,7 @@ The provided MATLAB code, projectile_z_v.m, can be used to track the position an
 
  <img src="projectile_v_x.png" width="350">
 
-If you are using [Compute Canada](https://www.computecanada.ca/home/), the "sub.sh" script can be used to submit the job. The simulation will need ~XXX core-hours.
+If you are using [Compute Canada](https://www.computecanada.ca/home/), the "sub.sh" script can be used to submit the job. The simulation will need ~11,000 core-hours.
 
 If you would like to learn more about the model, please read [our paper](https://www.sciencedirect.com/science/article/abs/pii/S0927025621002299). 
 
