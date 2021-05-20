@@ -1,0 +1,87 @@
+# Nuwan Dewapriya (2021/05/19)
+# ------------------------ INITIALIZATION ----------------------------
+units 		real
+boundary	p p p
+atom_style	full
+
+
+# ----------------- Interaction potential definition-----------------
+
+processors * * 1
+read_data 	"impact_data.data"
+include         "impact_para.params"
+kspace_style	pppm 1e-06
+
+
+# -----------------To get rid of out-of-range-atoms error-----------------
+
+neighbor        3.0 bin
+neigh_modify    delay 0 every 1 check yes
+comm_modify 	 mode multi cutoff/multi * 15.0
+
+
+# ----------------- Minimize Section -----------------
+
+min_style          cg
+min_modify         dmax 0.4
+minimize           1e-8 1e-10 20000 50000
+reset_timestep     0
+
+
+# -----------------------ATOM DEFINITION----------------
+
+group slabs type 1 2 3 4 5 6 7 8 9 10 11 12 13
+group bullet type 14
+
+region pu_remain cylinder z 0 0 210 -100 40 units box
+group pu_remain region pu_remain
+group pu_delete subtract slabs pu_remain
+
+region active_pu cylinder z 0 0 200 -50 40 units box
+group active_pu region active_pu
+
+group pu_only type 1 2 3 4 5 6 7 8 9 10 11
+group al_slab type 12 13
+
+
+# -----------------------EQUILIBRATION----------------
+
+variable tstp equal 0.2
+timestep ${tstp}
+variable tdamp equal "v_tstp * 100"
+
+
+fix	1 slabs  nve/limit 0.1
+fix	2 slabs  langevin 300.0 300.0 ${tdamp} 90429997
+
+thermo      1000
+
+run 		300000
+
+unfix 	1
+
+delete_atoms 	group pu_delete bond yes compress yes
+
+fix	1 active_pu nve
+
+run 		300000
+unfix 	2
+
+# -----------------------VARIBLES----------------
+
+variable       Dist_bull_x equal xcm(bullet,x)
+variable       Dist_bull_y equal xcm(bullet,y)
+variable       Dist_bull_z equal xcm(bullet,z)
+variable       Velocity_bull_x equal vcm(bullet,x)
+variable       Velocity_bull_y equal vcm(bullet,y)
+variable       Velocity_bull_z equal vcm(bullet,z)
+
+fix            2 all print 100 "${Dist_bull_x} ${Dist_bull_y} ${Dist_bull_z} ${Velocity_bull_x} ${Velocity_bull_y} ${Velocity_bull_z}" file bullet_z_v_data.dump screen no
+
+
+# -----------------------IMPACT----------------
+
+fix        3 bullet rigid single
+velocity   bullet set 0 0 -0.004 sum no units box
+dump       2 all atom 100000 impact_test_movie.lammpstrj
+run 	   1000000
