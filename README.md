@@ -1,7 +1,9 @@
 # Molecular dynamics simulations of ballistic impact tests
 
 I would like to share a molecular dynamics (MD) model used in our recent paper published in
- [Computational Materials Science](https://www.sciencedirect.com/science/article/abs/pii/S0927025621002299). This repository contains the LAMMPS files required to run MD simulations of impact tests of the aluminum/polyurea structure shown below. The LAMMPS data file (164 MB) can be downloaded [from here](https://drive.google.com/file/d/1J8zSFvw8cZQ8xSUp9quD7xxAviviOzIl/view?usp=sharing). The input and parameters files are available above (“impact_in.in” and “impact_para.params”). A brief video overview of this model (and another) is [available here](https://youtu.be/hgZXvUdr-Qo).
+ [Computational Materials Science](https://www.sciencedirect.com/science/article/abs/pii/S0927025621002299). This repository contains the LAMMPS files required to run MD simulations of impact tests of the aluminum/polyurea structure shown below. The LAMMPS data file (164 MB) can be downloaded [from here](https://drive.google.com/file/d/1J8zSFvw8cZQ8xSUp9quD7xxAviviOzIl/view?usp=sharing). The input and parameters files are available above (“impact_in.in” and “impact_para.params”). We used the [Enhanced Monte Carlo](http://montecarlo.sourceforge.net/emc/Welcome.html) pcakage to create the polymer model and the [Open Visualization Tool](https://www.ovito.org/) for visualization.
+
+A brief video overview of this model (and another) is [available here](https://youtu.be/hgZXvUdr-Qo). 
 
  <img src="MD_model.JPG" width="600">
 
